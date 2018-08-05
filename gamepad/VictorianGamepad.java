@@ -16,7 +16,8 @@ public final class VictorianGamepad {
     }
 
     /**
-     * A section of a float control's output interval that obeys a unique function
+     * A section of a float control's output interval that obeys a unique
+     * function
      * @see #Function
      */
     public class FloatZone {
@@ -111,7 +112,8 @@ public final class VictorianGamepad {
     public float left_trigger, right_trigger;
 
     /**
-     * @param g The client gamepad, usually one of the instances inherited from the parent opmode
+     * @param g The client gamepad, usually one of the instances inherited
+     *          from the parent opmode
      */
     public VictorianGamepad(Gamepad g) {
         client = g;
@@ -147,13 +149,15 @@ public final class VictorianGamepad {
     }
 
     /**
-     * Update control variables by translating information from the client gamepad to this gamepad.
-     * To get the most up-to-date information, this method must be called prior to any bulk control
-     * reads (ideally at the beginning of OpMode.loop()).
+     * Update control variables by translating information from the client
+     * gamepad to this gamepad. To get the most up-to-date information, this
+     * method must be called prior to any bulk control reads (ideally at the
+     * beginning of OpMode.loop()).
      *
-     * If a single update() call is made to service a large amount of control reads, latency may occur.
-     * This can be minimized by updating the gamepad in its own thread, or mitigated completely by
-     * disregarding update() and using the selective read methods instead.
+     * If a single update() call is made to service a large amount of control
+     * reads, latency may occur. This can be minimized by updating the gamepad
+     * in its own thread, or mitigated completely by disregarding update() and
+     * using the selective read methods instead.
      */
     public void update() {
         for (Control cont : controls)
@@ -187,10 +191,10 @@ public final class VictorianGamepad {
     }
 
     /**
-     * Add a new zone to a float control. Zones are ranges of thumbstick/trigger input with their own
-     * unique functions. If zones are added but sections of the input interval are left uncovered,
-     * input on those intervals return their default values (themselves). Zones are mirrored across
-     * axes.
+     * Add a new zone to a float control. Zones are ranges of thumbstick/trigger
+     * input with their own unique functions. If zones are added but sections of
+     * the input interval are left uncovered, input on those intervals return
+     * their default values (themselves). Zones are mirrored across axes.
      * @param name Name of the control--see valid control names in the constructor
      * @param lower Lower bound of the zone (included)
      * @param upper Upper bound of the zone (excluded)
@@ -203,9 +207,10 @@ public final class VictorianGamepad {
     }
 
     /**
-     * Methods for accessing controls by name. Only the specified control is updated, rather than
-     * the entire map. This is preferable if running gamepad updates in its own thread is
-     * impractical or latency issues occur regardless.
+     * Methods for accessing controls by name. Only the specified control is
+     * updated, rather than the entire map. This is preferable if running
+     * gamepad updates in its own thread is impractical or latency issues occur
+     * regardless.
      */
     public boolean bc(String name) {
         BooleanControl cont = (BooleanControl)selectiveUpdate(controlMap.get(name));
