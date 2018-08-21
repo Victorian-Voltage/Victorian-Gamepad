@@ -308,7 +308,7 @@ public final class VictorianGamepad {
     }
 
     public boolean dpad_down() {
-        BooleanControl cont = (BooleanControl)selectiveUpdate(controls.get(5);
+        BooleanControl cont = (BooleanControl)selectiveUpdate(controls.get(5));
         return cont.held;
     }
 
